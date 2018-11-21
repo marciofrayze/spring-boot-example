@@ -23,13 +23,9 @@ as a quick-start for other projects.
 - Gradle
 
 ## How to compile (without dependency security analysis)
-- ```gradle wrapper```
 - ```./gradlew clean restdoc jacocoTestReport checkstyleMain checkstyleTest build --stacktrace --info --warning-mode=all```
 
-The first command is required only for the first execution so the right version of gradle is configured.
-
 ## How to compile (with dependency security analysis)
-- ```gradle wrapper```
 - ```./gradlew clean restdoc jacocoTestReport checkstyleMain checkstyleTest dependencyCheckAnalyze build --stacktrace --info --warning-mode=all```
 
 The first time you run this command it will take many minutes to execute, since it will download the NDC database.
