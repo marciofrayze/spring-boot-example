@@ -10,7 +10,7 @@ as a quick-start for other projects.
 
 ## Components and plugins used in this demo
 - Spring Boot
-- Sprinv MVC
+- Spring MVC
 - Spring Data
 - Spring REST Docs
 - Springfox
