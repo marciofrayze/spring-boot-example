@@ -3,6 +3,7 @@ package tech.segunda.application.book.controller.html;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
@@ -11,6 +12,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import tech.segunda.domain.Book;
+import tech.segunda.infrastructure.services.BookService;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -26,10 +29,15 @@ public class BooksHtmlControllerTest {
 
 	private MockMvc mockMvc;
 
+	@Autowired
+	BookService bookService;
+
 	@BeforeEach
 	public void setUpBeforeEach(
 			WebApplicationContext webApplicationContext,
 			RestDocumentationContextProvider restDocumentation) {
+
+		bookService.removeAll();
 
 		this.mockMvc = MockMvcBuilders
 				.webAppContextSetup(webApplicationContext)
@@ -40,11 +48,18 @@ public class BooksHtmlControllerTest {
 
 	@Test
 	public void getBooks_shouldReturnPageWithResumeOfAllBoks() throws Exception {
+		// Given
+		Book someBook = new Book(
+				"1234567890123",
+				"A fake book",
+				"Just a fake book");
+		bookService.persist(someBook);
+
 		// When
 		final ResultActions result = this.mockMvc.perform(get("/books/"));
 
  		// Then
-		final String expectedPageText = "Total number of books: 0";
+		final String expectedPageText = "Total number of books: 1";
 		result.andExpect(
 				status().isOk())
 				.andExpect(
