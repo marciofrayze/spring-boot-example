@@ -1,0 +1,172 @@
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$SPRING_BOOT_VERSTION"
+
+        // Plugin for vulnerability check:
+        classpath "org.owasp:dependency-check-gradle:$OWASP_VERSION"
+    }
+
+}
+
+// All versions were supposed to be in settings.gradle, but gradle does not support
+// external versions for plugins... so they are hardcoded here. Sorry.
+plugins {
+    // Used fo Spring REST Docs:
+    id 'org.asciidoctor.convert' version '2.0-alpha.4'
+
+    // Plugin to check if there are any new versions of the project dependencies.
+    // More info at: https://github.com/ben-manes/gradle-versions-plugin
+    id "com.github.ben-manes.versions" version '0.20.0'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'jacoco'
+apply plugin: 'org.owasp.dependencycheck'
+apply plugin: 'checkstyle'
+apply plugin: 'com.github.ben-manes.versions'
+
+group = GROUP_ID
+version = JAR_VERSION
+
+sourceCompatibility = JAVA_VERSION
+targetCompatibility = JAVA_VERSION
+
+dependencies {
+    // Spring related:
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile "org.springframework.security:spring-security-web:${SPRING_SECURITY_WEB_VERSION}"
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    // Thymeleaf is only required if you are are going to use action-based pages and thymeleaf HTML templates.
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // Some extra dependencies to make Spring work with JDK11:
+    compile "javax.xml.bind:jaxb-api:${JAXB_VERSION}"
+    compile "com.sun.xml.bind:jaxb-impl:${JAXB_VERSION}"
+    compile "com.sun.xml.bind:jaxb-core:${JAXB_CORE_VERSION}"
+
+    // FIXME: Actuator needs micrometer-core, but for some reason since the Java 11 migration I have to explicitly declare it.
+    compile 'io.micrometer:micrometer-core:1.1.0'
+
+    // By default this project uses in memory database (H2). If you want to use postgresql, then
+    // comment this line and uncommend the next one.
+    runtime 'com.h2database:h2'
+    // PostgreSQL (if you want to use postgresql, don't forget to change applciation.properties as well):
+    // runtime 'org.postgresql:postgresql'
+
+    // Using jUnit 5 for testing:
+    testCompile 'org.junit.jupiter:junit-jupiter-api'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine'
+    testCompile 'org.junit.jupiter:junit-jupiter-params'
+
+    // Hibernate Envers (@Audited):
+    compile 'org.hibernate:hibernate-envers'
+
+    // Swagger (springfox):
+    compile "io.springfox:springfox-swagger2:$SPRINGFOX_VERSION"
+    runtime "io.springfox:springfox-swagger-ui:$SPRINGFOX_VERSION"
+
+}
+
+wrapper {
+    gradleVersion = GRADLE_VERSION
+}
+
+// JUnit 5 configuration:
+test {
+    useJUnitPlatform {
+        includeEngines 'junit-jupiter'
+    }
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
+
+// Code quality metrics. More info at: https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html
+jacocoTestCoverageVerification {
+    violationRules {
+        // Minimum test coverage percentage.
+        rule {
+            element = 'BUNDLE'
+            limit {
+                counter = 'INSTRUCTION'
+                value = 'COVEREDRATIO'
+                minimum = 0.65
+            }
+        }
+
+        // Maximum cyclomatic complexity (per method).
+        rule {
+            element = 'METHOD'
+            limit {
+                counter = 'COMPLEXITY'
+                value = 'TOTALCOUNT'
+                maximum = 7
+            }
+        }
+
+        // Maximum cyclomatic complexity (per class).
+        rule {
+            element = 'CLASS'
+            limit {
+                counter = 'COMPLEXITY'
+                value = 'TOTALCOUNT'
+                maximum = 50
+            }
+        }
+    }
+}
+check.dependsOn jacocoTestCoverageVerification
+
+// More info for dependencyCheck configuration at:
+// https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html
+dependencyCheck {
+    // Break the build if a dangerous security problem is detected.
+    failBuildOnCVSS = 0
+
+    // Ignore the asciidoctor dependencies, since it's used during test only.
+    skipConfigurations = ['asciidoctor']
+}
+
+// Configuring asciidoctor to work with Spring REST Docs:
+asciidoctor {
+    dependsOn test
+}
+
+// This task will copy the result of asciidoctor to a public folder (static/docs).
+// This way the docs are accessible from the browser a the context /docs.
+task restdoc(type: Copy) {
+    dependsOn asciidoctor
+    from "${asciidoctor.outputDir}/html5"
+    into "${sourceSets.main.output.resourcesDir}/static/docs"
+}
+
+checkstyle {
+    // Check but don't break the build, yet. Only print some warnings.
+    ignoreFailures = true
+}
+
+jacoco {
+    toolVersion = "${JACOCO_VERSION }"
+}

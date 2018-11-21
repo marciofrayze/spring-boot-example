@@ -1,0 +1,32 @@
+= Documentation
+Spring Boot Example;
+:doctype: book
+:toc: left
+:toc-title: Index
+:icons: font
+:source-highlighter: highlightjs
+:snippets: ../../../build/generated-snippets
+
+== Retrieve all books
+
+include::{snippets}/get-books_should-return-all-books/curl-request.adoc[]
+
+Request response:
+
+include::{snippets}/get-books_should-return-all-books/http-response.adoc[]
+
+== Retrieve book by isbn
+
+include::{snippets}/get-book-by-isbn_should-return-corresponding-book/curl-request.adoc[]
+
+Request response:
+
+include::{snippets}/get-book-by-isbn_should-return-corresponding-book/http-response.adoc[]
+
+== Add book
+
+include::{snippets}/post-book_should-add-book/curl-request.adoc[]
+
+Request response:
+
+include::{snippets}/post-book_should-add-book/http-response.adoc[]
