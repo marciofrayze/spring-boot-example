@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mfdavid/spring-boot-example.svg?branch=master)](https://travis-ci.org/mfdavid/spring-boot-example)
+
 # Spring Boot Example
 This project is a simples WEB (REST + Action Based) application using many Spring components.
 
@@ -65,6 +67,6 @@ To start the server, run:
 Or, if you prefer, you may compile and start the application server using the bootRun command such as:
 - ```./gradlew clean restdoc jacocoTestReport bootRun --stacktrace --info --warning-mode=all```
  
-## Known Issues
+## Known issues
 - The current version of the H2 database has a security flaw and do not recommend using it in production. 
 More details can be seen by executing the script  "generateDependencyCheckAnalyzerReport.sh ".  
