@@ -1,6 +1,11 @@
 # This is a configuration file for using the travis-ci.org continuous integration.
 
 language: java
+install: true
+
 jdk:
   - oraclejdk11
   - openjdk11
+
+script:
+  - ./gradlew clean restdoc jacocoTestReport checkstyleMain checkstyleTest build --stacktrace --info --warning-mode=all
