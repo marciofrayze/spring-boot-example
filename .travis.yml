@@ -1,0 +1,6 @@
+# This is a configuration file for using the travis-ci.org continuous integration.
+
+language: java
+jdk:
+  - oraclejdk11
+  - openjdk11
