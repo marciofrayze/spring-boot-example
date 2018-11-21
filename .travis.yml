@@ -8,5 +8,4 @@ jdk:
   - openjdk11
 
 script:
-  - gradle wrapper
   - ./gradlew clean restdoc jacocoTestReport checkstyleMain checkstyleTest build --stacktrace --info --warning-mode=all
