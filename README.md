@@ -4,7 +4,7 @@
 This project is a simples WEB (REST + Action Based) application using many Spring components.
 
 The goal is to test Spring and some other tools and create a place were people can see them in action and maybe use it
-as a quick-start for other projects.
+as a quick start for other projects.
 
 **This is a work in progress.**
 
