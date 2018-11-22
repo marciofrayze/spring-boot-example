@@ -39,22 +39,6 @@ public class BookEntityJPA {
         createdAt = new Date();
     }
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	public String getIsbn() {
 		return isbn;
 	}
