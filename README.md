@@ -32,7 +32,7 @@ The first time you run this command it will take many minutes to execute, since 
 The second time should be much faster.
 
 ## Test reports
-After compiling the project with ont the commends above, a new test report will be available at:
+After compiling the project with one the commands above, a new test report will be available at:
 - build/reports/jacoco/test/html/index.html
 
 ## Dependency security analysis
