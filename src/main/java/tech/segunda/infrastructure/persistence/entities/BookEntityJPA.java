@@ -20,10 +20,6 @@ public class BookEntityJPA {
     @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
 
-    @Column(name = "inserted_by", length = 50, nullable = false, updatable = false)
-    @Size(min = 6, max = 50)
-    private String insertedBy;
-
     @Column(length = 13, nullable = false, unique=true, updatable = false)
     @Size(min = 13, max=13)
     private String isbn;
@@ -57,14 +53,6 @@ public class BookEntityJPA {
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
-	}
-
-	public String getInsertedBy() {
-		return insertedBy;
-	}
-
-	public void setInsertedBy(String insertedBy) {
-		this.insertedBy = insertedBy;
 	}
 
 	public String getIsbn() {
