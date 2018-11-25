@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$SPRING_BOOT_VERSTION"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$SPRING_BOOT_VERSION"
 
         // Plugin for vulnerability check:
         classpath "org.owasp:dependency-check-gradle:$OWASP_VERSION"
