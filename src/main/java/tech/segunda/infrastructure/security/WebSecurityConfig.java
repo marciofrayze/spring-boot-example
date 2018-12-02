@@ -21,13 +21,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // Fakes  2 usuários, one with roles "USER" and another one with "USER" and "MANAGER".
-		// FIXME: It's not recommended to use any in memory hardcoded passwords! This is just a simple example on how
-		// to do authentication. The "{noop}" indicates to Spring that it should use NoOpPasswordEncoder.
-		auth.inMemoryAuthentication()
-				.withUser("user").password("{noop}myveryinsecurepassword123").roles("USER")
-				.and()
-				.withUser("anotheruser").password("{noop}anotherveryinsecurepassword123").roles("MANAGER").roles("USER");
+        // Fakes  2 users, one with roles "USER" and another one with "USER" and "MANAGER".
+	// FIXME: It's not recommended to use any in memory hardcoded passwords! This is just a simple example on how
+	// to do authentication. The "{noop}" indicates to Spring that it should use NoOpPasswordEncoder.
+	auth.inMemoryAuthentication()
+			.withUser("user").password("{noop}myveryinsecurepassword123").roles("USER")
+			.and()
+			.withUser("anotheruser").password("{noop}anotherveryinsecurepassword123").roles("MANAGER").roles("USER");
 	}
 
 }
