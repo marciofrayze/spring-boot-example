@@ -65,4 +65,4 @@ Or, if you prefer, you may compile and start the application server using the bo
  
 ## Known issues
 - The current version of the H2 database has a security flaw and do not recommend using it in production. 
-More details can be seen by executing the script  "generateDependencyCheckAnalyzerReport.sh ".  
+More details can be seen by executing the script  "generateDependencyCheckAnalyzerReport.sh".  
