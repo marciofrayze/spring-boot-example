@@ -1,13 +1,13 @@
-package tech.segunda.application.book.controllers.rest;
+package change.me.application.book.controllers.rest;
 
+import change.me.application.book.controllers.rest.dtos.inputs.BookInputDTO;
+import change.me.application.book.controllers.rest.dtos.returns.BookReturnDTO;
+import change.me.application.exceptions.ResourceNotFoundException;
+import change.me.domain.Book;
+import change.me.infrastructure.services.BookService;
+import change.me.infrastructure.services.converters.BookConverter;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import tech.segunda.application.book.controllers.rest.dtos.inputs.BookInputDTO;
-import tech.segunda.application.book.controllers.rest.dtos.returns.BookReturnDTO;
-import tech.segunda.application.exceptions.ResourceNotFoundException;
-import tech.segunda.domain.Book;
-import tech.segunda.infrastructure.services.BookService;
-import tech.segunda.infrastructure.services.converters.BookConverter;
 
 import javax.validation.Valid;
 import java.util.List;

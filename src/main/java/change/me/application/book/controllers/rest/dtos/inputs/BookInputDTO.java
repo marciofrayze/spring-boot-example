@@ -1,4 +1,4 @@
-package tech.segunda.application.book.controllers.rest.dtos.inputs;
+package change.me.application.book.controllers.rest.dtos.inputs;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

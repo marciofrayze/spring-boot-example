@@ -1,9 +1,9 @@
-package tech.segunda.services;
+package change.me.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import tech.segunda.domain.Book;
-import tech.segunda.infrastructure.services.BookService;
+import change.me.domain.Book;
+import change.me.infrastructure.services.BookService;
 
 import java.util.ArrayList;
 import java.util.List;

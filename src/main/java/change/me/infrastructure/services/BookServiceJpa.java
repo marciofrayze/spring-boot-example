@@ -1,10 +1,10 @@
-package tech.segunda.infrastructure.services;
+package change.me.infrastructure.services;
 
+import change.me.infrastructure.services.converters.BookConverter;
 import org.springframework.stereotype.Service;
-import tech.segunda.domain.Book;
-import tech.segunda.infrastructure.persistence.BookJpaRepository;
-import tech.segunda.infrastructure.persistence.entities.BookEntityJPA;
-import tech.segunda.infrastructure.services.converters.BookConverter;
+import change.me.domain.Book;
+import change.me.infrastructure.persistence.BookJpaRepository;
+import change.me.infrastructure.persistence.entities.BookEntityJPA;
 
 import java.util.List;
 import java.util.Optional;

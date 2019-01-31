@@ -1,8 +1,8 @@
-package tech.segunda.infrastructure.persistence;
+package change.me.infrastructure.persistence;
 
+import change.me.infrastructure.persistence.entities.BookEntityJPA;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tech.segunda.infrastructure.persistence.entities.BookEntityJPA;
 
 import java.util.Optional;
 

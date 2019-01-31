@@ -1,4 +1,4 @@
-package tech.segunda.application.book.controller.html;
+package change.me.application.book.controller.html;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

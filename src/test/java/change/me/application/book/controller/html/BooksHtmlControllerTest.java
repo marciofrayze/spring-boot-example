@@ -1,5 +1,6 @@
-package tech.segunda.application.book.controller.html;
+package change.me.application.book.controller.html;
 
+import change.me.infrastructure.services.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,8 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import tech.segunda.domain.Book;
-import tech.segunda.infrastructure.services.BookService;
+import change.me.domain.Book;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -30,7 +30,7 @@ public class BooksHtmlControllerTest {
 	private MockMvc mockMvc;
 
 	@Autowired
-	BookService bookService;
+    BookService bookService;
 
 	@BeforeEach
 	public void setUpBeforeEach(

@@ -1,4 +1,4 @@
-package tech.segunda.application.book.controllers.rest.dtos.returns;
+package change.me.application.book.controllers.rest.dtos.returns;
 
 public class BookReturnDTO {
 

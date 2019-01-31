@@ -1,4 +1,4 @@
-package tech.segunda.infrastructure.persistence.entities;
+package change.me.infrastructure.persistence.entities;
 
 import org.hibernate.envers.Audited;
 

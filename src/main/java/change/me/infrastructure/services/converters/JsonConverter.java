@@ -1,4 +1,4 @@
-package tech.segunda.infrastructure.services.converters;
+package change.me.infrastructure.services.converters;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

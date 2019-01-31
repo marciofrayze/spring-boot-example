@@ -1,6 +1,6 @@
-package tech.segunda.infrastructure.services;
+package change.me.infrastructure.services;
 
-import tech.segunda.domain.Book;
+import change.me.domain.Book;
 
 import java.util.List;
 import java.util.Optional;

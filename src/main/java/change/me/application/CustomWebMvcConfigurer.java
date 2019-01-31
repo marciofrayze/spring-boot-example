@@ -1,4 +1,4 @@
-package tech.segunda.application;
+package change.me.application;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

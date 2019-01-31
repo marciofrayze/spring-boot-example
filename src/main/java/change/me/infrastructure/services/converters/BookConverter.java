@@ -1,10 +1,10 @@
-package tech.segunda.infrastructure.services.converters;
+package change.me.infrastructure.services.converters;
 
+import change.me.application.book.controllers.rest.dtos.inputs.BookInputDTO;
+import change.me.application.book.controllers.rest.dtos.returns.BookReturnDTO;
 import org.springframework.stereotype.Service;
-import tech.segunda.application.book.controllers.rest.dtos.inputs.BookInputDTO;
-import tech.segunda.application.book.controllers.rest.dtos.returns.BookReturnDTO;
-import tech.segunda.domain.Book;
-import tech.segunda.infrastructure.persistence.entities.BookEntityJPA;
+import change.me.domain.Book;
+import change.me.infrastructure.persistence.entities.BookEntityJPA;
 
 import java.util.List;
 import java.util.stream.Collectors;

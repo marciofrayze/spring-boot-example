@@ -1,4 +1,4 @@
-package tech.segunda.domain;
+package change.me.domain;
 
 import java.util.Optional;
 

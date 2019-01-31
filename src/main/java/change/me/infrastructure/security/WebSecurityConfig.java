@@ -1,4 +1,4 @@
-package tech.segunda.infrastructure.security;
+package change.me.infrastructure.security;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

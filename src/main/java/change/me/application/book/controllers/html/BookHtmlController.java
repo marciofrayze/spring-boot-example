@@ -1,11 +1,11 @@
-package tech.segunda.application.book.controllers.html;
+package change.me.application.book.controllers.html;
 
+import change.me.domain.Book;
+import change.me.infrastructure.services.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import tech.segunda.domain.Book;
-import tech.segunda.infrastructure.services.BookService;
 
 import java.util.List;
 
