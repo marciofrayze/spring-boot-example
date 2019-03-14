@@ -22,7 +22,7 @@ plugins {
 
     // Plugin to check if there are any new versions of the project dependencies.
     // More info at: https://github.com/ben-manes/gradle-versions-plugin
-    id "com.github.ben-manes.versions" version '0.20.0'
+    id "com.github.ben-manes.versions" version '0.21.0'
 }
 
 repositories {
