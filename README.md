@@ -20,7 +20,7 @@ as a quick start for other projects.
 
 ## Demo
 
-http://mfdavid-spring-boot-example.herokuapp.com
+https://mfdavid-spring-boot-example.herokuapp.com
 
 Please note that this project is deployed on a free heroku tier and may take up to 1 minute to "wake up" the dyno/server on the first request.
 
