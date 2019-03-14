@@ -18,6 +18,12 @@ as a quick start for other projects.
 - Checkstyle
 - Gradle Versions Plugin (dependencyUpdates)
 
+## Demo
+
+http://mfdavid-spring-boot-example.herokuapp.com
+
+Please note that this project is deployed on a free heroku tier and may take up to 1 minute to "wake up" the dyno/server on the first request.
+
 ## Requirements
 - JDK 11
 - Gradle
