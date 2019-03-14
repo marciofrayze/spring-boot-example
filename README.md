@@ -56,7 +56,7 @@ config/checkstyle/checkstyle.xml) will be generated at:
 - ```./gradlew tasks```
 
 ## Starting the server
-O Spring Boot uses the concept of "fat jar". The entire application server is self contained in a *jar* file.
+Spring Boot uses the concept of "fat jar". The entire application server is self contained in a *jar* file.
 To start the server, run:
 - ```java -jar build/libs/spring-boot-example-0.0.1-SNAPSHOT.jar```
 
