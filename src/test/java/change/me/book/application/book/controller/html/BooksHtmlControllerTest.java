@@ -25,8 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 @SpringBootTest
-public class BooksHtmlControllerTest {
-
+public class BooksHtmlControllerTest
+{
 	private MockMvc mockMvc;
 
 	@Autowired
@@ -35,8 +35,8 @@ public class BooksHtmlControllerTest {
 	@BeforeEach
 	public void setUpBeforeEach(
 			WebApplicationContext webApplicationContext,
-			RestDocumentationContextProvider restDocumentation) {
-
+			RestDocumentationContextProvider restDocumentation)
+	{
 		bookService.removeAll();
 
 		this.mockMvc = MockMvcBuilders
@@ -47,7 +47,8 @@ public class BooksHtmlControllerTest {
 	}
 
 	@Test
-	public void getBooks_shouldReturnPageWithResumeOfAllBoks() throws Exception {
+	public void getBooks_shouldReturnPageWithResumeOfAllBoks() throws Exception
+	{
 		// Given
 		Book someBook = new Book(
 				"1234567890123",
@@ -56,7 +57,7 @@ public class BooksHtmlControllerTest {
 		bookService.persist(someBook);
 
 		// When
-		final ResultActions result = this.mockMvc.perform(get("/books/"));
+		ResultActions result = this.mockMvc.perform(get("/books/"));
 
  		// Then
 		final String expectedPageText = "Total number of books: 1";

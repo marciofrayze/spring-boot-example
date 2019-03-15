@@ -11,21 +11,24 @@ import java.util.Optional;
 
 @Service
 @Primary
-public class BookServiceFake implements BookService {
-
+public class BookServiceFake implements BookService
+{
 	private final List<Book> books;
 
-	public BookServiceFake() {
+	public BookServiceFake()
+	{
 		books = new ArrayList<>();
 	}
 
 	@Override
-	public List<Book> findAll() {
+	public List<Book> findAll()
+	{
 		return books;
 	}
 
 	@Override
-	public void persist(Book book) {
+	public void persist(Book book)
+	{
 		books.add(book);
 	}
 
@@ -38,7 +41,8 @@ public class BookServiceFake implements BookService {
 	}
 
 	@Override
-	public void removeAll() {
+	public void removeAll()
+	{
 		books.clear();
 	}
 

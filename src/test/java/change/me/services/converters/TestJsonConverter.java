@@ -9,12 +9,14 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestJsonConverter {
+public class TestJsonConverter
+{
 
 	private final JsonConverter jsonConverter = new JsonConverter();
 
 	@Test
-	public void listOfStringsConversion_shouldGenerateValidJson() {
+	public void listOfStringsConversion_shouldGenerateValidJson()
+	{
 		// Given
 		List<String> listOfStrings = new ArrayList<>();
 		listOfStrings.add("firstEntry");
@@ -30,7 +32,8 @@ public class TestJsonConverter {
 	}
 
 	@Test
-	public void nullConversion_shouldGenerateEmptyOptional() {
+	public void nullConversion_shouldGenerateEmptyOptional()
+	{
 		// Given
 		Object nullObject = null;
 
@@ -42,7 +45,8 @@ public class TestJsonConverter {
 	}
 
 	@Test
-	public void nonSerializableObjectConversion_shouldGenerateEmptyOptional() {
+	public void nonSerializableObjectConversion_shouldGenerateEmptyOptional()
+	{
 		// Given
 		NonSerializableClass nonSerializableObject = new NonSerializableClass();
 

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface BookJpaRepository extends JpaRepository<BookEntityJPA, Long> {
-
+public interface BookJpaRepository extends JpaRepository<BookEntityJPA, Long>
+{
     @Override
     Optional<BookEntityJPA> findById(Long id);
 

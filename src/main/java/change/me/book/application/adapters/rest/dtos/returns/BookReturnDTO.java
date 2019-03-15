@@ -1,6 +1,7 @@
 package change.me.book.application.adapters.rest.dtos.returns;
 
-public class BookReturnDTO {
+public class BookReturnDTO
+{
 
     private String isbn;
     private String title;
@@ -9,22 +10,25 @@ public class BookReturnDTO {
     public BookReturnDTO(
     		final String isbn,
             final String title,
-            final String description) {
-
+            final String description)
+    {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
     }
 
-    public String getIsbn() {
+    public String getIsbn()
+    {
         return isbn;
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 

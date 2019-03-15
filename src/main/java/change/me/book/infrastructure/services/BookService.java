@@ -5,8 +5,8 @@ import change.me.book.domain.Book;
 import java.util.List;
 import java.util.Optional;
 
-public interface BookService {
-
+public interface BookService
+{
     void persist(Book book);
 
     List<Book> findAll();

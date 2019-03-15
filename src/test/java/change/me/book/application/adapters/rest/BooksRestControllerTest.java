@@ -25,8 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 @SpringBootTest
-public class BooksRestControllerTest {
-
+public class BooksRestControllerTest
+{
 	@Autowired
 	private BookService bookService;
 
@@ -38,8 +38,8 @@ public class BooksRestControllerTest {
 	@BeforeEach
 	public void setUpBeforeEach(
 			WebApplicationContext webApplicationContext,
-			RestDocumentationContextProvider restDocumentation) {
-
+			RestDocumentationContextProvider restDocumentation)
+	{
 		bookService.removeAll();
 		book1 = new Book("0123456789123", "Fake Book", "Optional fake description");
 		book2 = new Book("0987654321098", "Another Fake Book", null);
@@ -51,7 +51,8 @@ public class BooksRestControllerTest {
 	}
 
 	@Test
-	public void getBooks_shouldReturnAllBooks() throws Exception {
+	public void getBooks_shouldReturnAllBooks() throws Exception
+	{
 		// Given
 		bookService.persist(book1);
 		bookService.persist(book2);
@@ -69,7 +70,8 @@ public class BooksRestControllerTest {
 	}
 
 	@Test
-	public void getBookByIsbn_shouldReturnCorrespondingBook() throws Exception {
+	public void getBookByIsbn_shouldReturnCorrespondingBook() throws Exception
+	{
 		// Given
 		bookService.persist(book1);
 		bookService.persist(book2);
@@ -82,7 +84,8 @@ public class BooksRestControllerTest {
 	}
 
 	@Test
-	public void postBook_shouldAddBook() throws Exception {
+	public void postBook_shouldAddBook() throws Exception
+	{
 		// Given
 		String bookAsJsonStringContent = "{\"isbn\":\"0123456789123\",\"title\":\"Fake Book\",\"description\":\"Optional fake description\"}";
 

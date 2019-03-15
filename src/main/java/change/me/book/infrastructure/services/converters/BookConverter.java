@@ -10,24 +10,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class BookConverter {
-
-    public Book convertToBook(BookInputDTO bookInputDTO) {
-
+public class BookConverter
+{
+    public Book convertToBook(BookInputDTO bookInputDTO)
+    {
         return new Book(
         		bookInputDTO.getIsbn(),
                 bookInputDTO.getTitle(),
                 bookInputDTO.getDescription().orElse(null));
     }
 
-    public BookEntityJPA convertToBookEntity(Book book) {
-
-		BookEntityJPA bookEntityJPA = new BookEntityJPA();
-		bookEntityJPA.setTitle(book.getTitle());
-		bookEntityJPA.setIsbn(book.getIsbn());
-		bookEntityJPA.setDescription(book.getDescription().orElse(null));
-
-		return bookEntityJPA;
+    public BookEntityJPA convertToBookEntity(Book book)
+    {
+		return new BookEntityJPA(
+		        book.getTitle(),
+                book.getIsbn(),
+                book.getDescription().orElse(null));
     }
 
     public Book convertToBook(BookEntityJPA bookEntityJPA) {
@@ -42,7 +40,7 @@ public class BookConverter {
     public BookReturnDTO convertToBookReturnDTO(Book book) {
 
         return new BookReturnDTO(
-        		book.getIsbn(),
+                book.getIsbn(),
                 book.getTitle(),
                 book.getDescription().orElse(""));
     }

@@ -15,50 +15,50 @@ import java.util.Optional;
 import change.me.book.domain.Book;
 
 @RestController
-@RequestMapping(path = "/api/books",
-                produces = MediaType.APPLICATION_JSON_VALUE)
-public class BooksRestController {
-
+@RequestMapping(
+        path = "/api/books",
+        produces = MediaType.APPLICATION_JSON_VALUE)
+public class BooksRestController
+{
     private final BookConverter bookConverter;
     private final BookService bookService;
 
     public BooksRestController(
 			BookService bookService,
-			BookConverter bookConverter) {
-
+			BookConverter bookConverter)
+    {
         this.bookConverter = bookConverter;
         this.bookService = bookService;
     }
 
     @PostMapping
-    public BookReturnDTO create(@Valid @RequestBody BookInputDTO bookInputDTO) {
-
+    public BookReturnDTO create(@Valid @RequestBody BookInputDTO bookInputDTO)
+    {
         Book book = bookConverter.convertToBook(bookInputDTO);
-
         bookService.persist(book);
 
         return bookConverter.convertToBookReturnDTO(book);
     }
 
     @GetMapping
-    public List<BookReturnDTO> getAll() {
-
+    public List<BookReturnDTO> getAll()
+    {
         List<Book> books = bookService.findAll();
 
         return bookConverter.convertToBooksReturnDTOs(books);
     }
 
     @GetMapping("/{isbn}")
-    public BookReturnDTO getByIsbn(@PathVariable("isbn") String isbn) {
-
+    public BookReturnDTO getByIsbn(@PathVariable("isbn") String isbn)
+    {
         Optional<Book> book = bookService.findByIsbn(isbn);
 
-        if (book.isPresent()) {
+        if (book.isPresent())
+        {
 			return bookConverter.convertToBookReturnDTO(book.get());
         } else {
 			throw new ResourceNotFoundException();
         }
-
     }
 
 }

@@ -19,13 +19,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 @SpringBootTest
-public class PageNotFoundTest {
+public class PageNotFoundTest
+{
 
 	private MockMvc mockMvc;
 
 	@BeforeEach
-	public void setUpBeforeEach(final WebApplicationContext webApplicationContext,
-								final RestDocumentationContextProvider restDocumentation) {
+	public void setUpBeforeEach(WebApplicationContext webApplicationContext,
+								RestDocumentationContextProvider restDocumentation)
+	{
 
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
 				.apply(documentationConfiguration(restDocumentation))
@@ -34,7 +36,8 @@ public class PageNotFoundTest {
 	}
 
 	@Test
-	public void getNonexistentUrl_shouldReturn404() throws Exception {
+	public void getNonexistentUrl_shouldReturn404() throws Exception
+	{
 		// When / then
 		this.mockMvc.perform(get("/NonexistentPage/"))
 					.andExpect(

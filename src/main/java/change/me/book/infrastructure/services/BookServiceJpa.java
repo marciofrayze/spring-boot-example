@@ -10,43 +10,43 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BookServiceJpa implements BookService {
-
+public class BookServiceJpa implements BookService
+{
     private final BookJpaRepository bookJpaRepository;
     private final BookConverter bookConverter;
 
     public BookServiceJpa(
     		BookJpaRepository bookJpaRepository,
-            BookConverter bookConverter) {
-
+            BookConverter bookConverter)
+    {
         this.bookJpaRepository = bookJpaRepository;
         this.bookConverter = bookConverter;
     }
 
     @Override
-    public void persist(Book book) {
-
-        final BookEntityJPA bookEntity = bookConverter.convertToBookEntity(book);
+    public void persist(Book book)
+    {
+        BookEntityJPA bookEntity = bookConverter.convertToBookEntity(book);
 
         bookJpaRepository.save(bookEntity);
     }
 
     @Override
-    public List<Book> findAll() {
-
+    public List<Book> findAll()
+    {
         List<BookEntityJPA> booksEntities = bookJpaRepository.findAll();
+        List<Book> result = bookConverter.convertToBooks(booksEntities);
 
-        List<Book> books = bookConverter.convertToBooks(booksEntities);
-
-        return books;
+        return result;
     }
 
     @Override
-    public Optional<Book> findByIsbn(String isbn) {
-
+    public Optional<Book> findByIsbn(String isbn)
+    {
         Optional<BookEntityJPA> bookEntityJPA = bookJpaRepository.findByIsbn(isbn);
 
-        if (bookEntityJPA.isPresent()) {
+        if (bookEntityJPA.isPresent())
+        {
             return Optional.of(bookConverter.convertToBook(bookEntityJPA.get()));
         } else {
             return Optional.empty();
@@ -55,7 +55,8 @@ public class BookServiceJpa implements BookService {
     }
 
 	@Override
-	public void removeAll() {
+	public void removeAll()
+    {
 		bookJpaRepository.deleteAll();
 	}
 

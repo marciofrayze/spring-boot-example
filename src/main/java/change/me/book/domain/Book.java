@@ -2,8 +2,8 @@ package change.me.book.domain;
 
 import java.util.Optional;
 
-public class Book {
-
+public class Book
+{
     private final String isbn;
     private final String title;
     private final String description;
@@ -11,22 +11,25 @@ public class Book {
     public Book(
     		String isbn,
             String title,
-            String description) {
-
+            String description)
+    {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
     }
 
-    public String getIsbn() {
+    public String getIsbn()
+    {
         return isbn;
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
-    public Optional<String> getDescription() {
+    public Optional<String> getDescription()
+    {
         return Optional.ofNullable(description);
     }
 
