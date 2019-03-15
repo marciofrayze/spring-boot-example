@@ -1,7 +1,7 @@
 package change.me.services.converters;
 
 import org.junit.jupiter.api.Test;
-import change.me.infrastructure.services.converters.JsonConverter;
+import change.me.book.infrastructure.services.converters.JsonConverter;
 
 import java.util.ArrayList;
 import java.util.List;
