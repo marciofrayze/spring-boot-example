@@ -23,14 +23,17 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
+@ExtendWith({
+		RestDocumentationExtension.class,
+		SpringExtension.class
+})
 @SpringBootTest
 public class BooksHtmlControllerTest
 {
 	private MockMvc mockMvc;
 
 	@Autowired
-    BookService bookService;
+    private BookService bookService;
 
 	@BeforeEach
 	public void setUpBeforeEach(
@@ -57,18 +60,19 @@ public class BooksHtmlControllerTest
 		bookService.persist(someBook);
 
 		// When
-		ResultActions result = this.mockMvc.perform(get("/books/"));
+		ResultActions result = this.mockMvc.perform(
+				get("/books/")
+		);
 
  		// Then
-		final String expectedPageText = "Total number of books: 1";
+		String expectedPageText = "Total number of books: 1";
 		result.andExpect(
-				status().isOk())
+				status()
+						.isOk())
 				.andExpect(
 						content().string(
 								containsString(expectedPageText)
 						)
 				);
-
 	}
-
 }
