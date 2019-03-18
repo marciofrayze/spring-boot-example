@@ -2,8 +2,8 @@ package change.me.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import change.me.book.domain.Book;
-import change.me.book.infrastructure.services.BookService;
+import change.me.domain.Book;
+import change.me.infrastructure.book.services.BookService;
 
 import java.util.ArrayList;
 import java.util.List;
