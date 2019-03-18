@@ -87,7 +87,7 @@ dependencies {
     runtime "io.springfox:springfox-swagger-ui:$SPRINGFOX_VERSION"
 
     // Enforce dependencies between packages
-    compile 'io.github.theangrydev:domain-enforcer:1.1.1'
+    compile "io.github.theangrydev:domain-enforcer:$DOMAIN_ENFORCER_VERSION"
 
 }
 
