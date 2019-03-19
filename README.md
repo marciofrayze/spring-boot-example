@@ -17,6 +17,7 @@ as a quick start for other projects.
 - OWASP Dependency Check
 - Checkstyle
 - Gradle Versions Plugin (dependencyUpdates)
+- Domain-enforcer
 
 ## Demo
 
@@ -52,14 +53,11 @@ config/checkstyle/checkstyle.xml) will be generated at:
 - build/reports/checkstyle/main.html
 - build/reports/checkstyle/test.html 
 
-## Listing the dependencies tree
-- ```./gradlew dependencies --stacktrace --info --warning-mode=all```
-
 ## Checking for outdated dependencies
 - ```./gradlew dependencyUpdates -Drevision=release --stacktrace --info --warning-mode=all``` 
 
-## Listing other available gradle tasks
-- ```./gradlew tasks```
+## Listing the dependencies tree
+- ```./gradlew dependencies --stacktrace --info --warning-mode=all```
 
 ## Starting the server
 Spring Boot uses the concept of "fat jar". The entire application server is self contained in a *jar* file.
