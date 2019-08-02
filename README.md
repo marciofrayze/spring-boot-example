@@ -1,12 +1,12 @@
 [![Build Status](https://travis-ci.org/mfdavid/spring-boot-example.svg?branch=master)](https://travis-ci.org/mfdavid/spring-boot-example)
 
 # Spring Boot Example
-This project is a simples WEB (REST + Action Based) application using many Spring components.
+This project was a simples WEB (REST + Action Based) application using many Spring components.
 
-The goal is to test Spring and some other tools and create a place were people can see them in action and maybe use it
+The goal was to test Spring and some other tools and create a place were people can see them in action and maybe use it
 as a quick start for other projects.
 
-**This is a work in progress.**
+**This repository is not maintained anymore.**
 
 ## Components and plugins used in this demo
 - Spring Boot
