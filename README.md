@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mfdavid/spring-boot-example.svg?branch=master)](https://travis-ci.org/mfdavid/spring-boot-example)
+[![Build Status](https://travis-ci.org/marciofrayze/spring-boot-example.svg?branch=master)](https://travis-ci.org/marciofrayze/spring-boot-example)
 
 # Spring Boot Example
 This project was a simples WEB (REST + Action Based) application using many Spring components.
